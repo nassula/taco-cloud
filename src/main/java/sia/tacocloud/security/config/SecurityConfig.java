@@ -2,6 +2,7 @@ package sia.tacocloud.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.configuration.EnableGlobalAuthentication;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -12,6 +13,7 @@ import sia.tacocloud.domain.entities.UserTaco;
 import sia.tacocloud.repository.UserRepository;
 
 @Configuration
+@EnableGlobalAuthentication
 public class SecurityConfig {
 
     @Bean
@@ -37,6 +39,9 @@ public class SecurityConfig {
                 .requestMatchers("/", "/**").permitAll()
                 .and()
                 .formLogin().loginPage("/login")
+                .and()
+                .logout()
+                .logoutSuccessUrl("/")
                 .and().build();
     }
 }
