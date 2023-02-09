@@ -1,10 +1,9 @@
 package sia.tacocloud.repository;
 
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import sia.tacocloud.domain.entities.User;
+import sia.tacocloud.domain.entities.UserTaco;
 
-public interface UserRepository extends CrudRepository<User, Long> {
+public interface UserRepository extends CrudRepository<UserTaco, Long> {
 
-    User findByUsername(String username);
+    UserTaco findByUsername(String username);
 }
