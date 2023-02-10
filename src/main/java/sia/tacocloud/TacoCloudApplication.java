@@ -4,6 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import sia.tacocloud.domain.constants.Type;
 import sia.tacocloud.domain.entities.Ingredient;
 import sia.tacocloud.repository.IngredientRepository;
@@ -17,6 +18,7 @@ public class TacoCloudApplication {
 
     //This is a piece of code to populate the database with inicial ingredients
     @Bean
+    @Profile("dev")
     public CommandLineRunner dataLoader(IngredientRepository repository){
         return args -> {
             repository.save(new Ingredient("FLTO", "Flour Tortilla", Type.WRAP));

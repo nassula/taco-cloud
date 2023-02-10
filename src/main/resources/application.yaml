@@ -1,4 +1,6 @@
 spring:
- datasource:
-  generate-unique-name: false
-  name: tacocloud
+  profiles:
+    active:
+      - dev
+
+
