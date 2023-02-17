@@ -3,8 +3,14 @@ spring:
     rest:
       base-path: /data-api
   datasource:
-  generate-unique-name: false
-  name: tacocloud
+    generate-unique-name: false
+    name: tacocloud
+
+  artemis:
+    mode: native
+    broker-url: "tcp://127.0.0.1:8161"
+    user: "diego"
+    password: "diego"
 
 taco:
   orders:
